@@ -2,45 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para ti 🌼</title>
+  <title>Para ti 🌻</title>
   <style>
     body {
-      background: linear-gradient(#fff7cc, #ffe680);
-      text-align: center;
+      margin: 0;
+      overflow: hidden;
+      background: #fff8dc;
       font-family: Arial, sans-serif;
-      padding-top: 40px;
     }
-    h1 {
-      color: #ffcc00;
-    }
-    .tree {
+
+    .girasol {
+      position: absolute;
       font-size: 30px;
-      line-height: 30px;
-      margin-top: 30px;
-      animation: sway 3s infinite alternate;
+      animation: caer linear infinite;
     }
-    @keyframes sway {
-      from { transform: rotate(-2deg); }
-      to { transform: rotate(2deg); }
+
+    @keyframes caer {
+      from {
+        transform: translateY(-10vh);
+      }
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 40%;
+      color: #f4b400;
+      font-size: 40px;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
 
-  <h1>Para ti 💛</h1>
+  <h1>Para ti 🌻💛</h1>
 
-  <div class="tree">
-        🌼<br>
-       🌼🌼🌼<br>
-      🌼🌼🌼🌼🌼<br>
-     🌼🌼🌼🌼🌼🌼🌼<br>
-    🌼🌼🌼🌼🌼🌼🌼🌼🌼<br>
-       🌼🌼🌼<br>
-       🌼🌼🌼<br>
-        🌼🌼
-  </div>
+  <script>
+    function crearGirasol() {
+      const girasol = document.createElement("div");
+      girasol.classList.add("girasol");
+      girasol.innerHTML = "🌻";
 
-  <p>Un arbolito de flores para ti 🌼</p>
+      girasol.style.left = Math.random() * 100 + "vw";
+      girasol.style.animationDuration = (3 + Math.random() * 5) + "s";
+      girasol.style.fontSize = (20 + Math.random() * 30) + "px";
+
+      document.body.appendChild(girasol);
+
+      setTimeout(() => {
+        girasol.remove();
+      }, 8000);
+    }
+
+    setInterval(crearGirasol, 200);
+  </script>
 
 </body>
 </html>
